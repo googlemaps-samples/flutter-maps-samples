@@ -1,0 +1,141 @@
+# Copyright 2025 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     https://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+name: Run tests and build
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test-flutter:
+    name: Run Flutter tests
+    timeout-minutes: 45
+    runs-on:
+      labels: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        name: Checkout code
+      - uses: actions/setup-java@v4
+        name: Setup java
+        with:
+          distribution: "temurin"
+          java-version: "17"
+          cache: "gradle"
+      - uses: subosito/flutter-action@f2c4f6686ca8e8d6e6d0f28410eeef506ed66aff
+        name: Setup flutter
+        with:
+          flutter-version: "3.27.x"
+          channel: "stable"
+          cache: true
+      - uses: bluefireteam/melos-action@6085791af7036f6366c9a4b9d55105c0ef9c6388
+        with:
+          melos-version: "6.0.0"
+      - name: "Run flutter test"
+        run: melos run test
+
+  build-android:
+    name: Build Android
+    needs: [test-flutter]
+    if: contains(github.base_ref, 'main')
+    timeout-minutes: 45
+    runs-on:
+      labels: ubuntu-latest
+    env:
+      MAPS_API_KEY: ${{ secrets.ACTIONS_API_KEY }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Setup java
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: "17"
+          cache: "gradle"
+      - name: Setup flutter
+        uses: subosito/flutter-action@f2c4f6686ca8e8d6e6d0f28410eeef506ed66aff
+        with:
+          flutter-version: "3.27.x"
+          channel: "stable"
+          cache: true
+      - name: Setup melos
+        uses: bluefireteam/melos-action@6085791af7036f6366c9a4b9d55105c0ef9c6388
+        with:
+          melos-version: "6.0.0"
+      - name: Download Build Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ runner.os }}-build-artifact
+      - name: "Run build for Android"
+        run: melos run flutter-build-android
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ runner.os }}-build-artifact
+          include-hidden-files: true
+          path: build
+          retention-days: 1
+          overwrite: true
+
+  build-ios:
+    name: Build iOS
+    needs: [test-flutter]
+    if: contains(github.base_ref, 'main')
+    timeout-minutes: 90
+    runs-on:
+      labels: macos-latest-xlarge
+    env:
+      MAPS_API_KEY: ${{ secrets.ACTIONS_API_KEY }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Setup flutter
+        uses: subosito/flutter-action@f2c4f6686ca8e8d6e6d0f28410eeef506ed66aff
+        with:
+          flutter-version: "3.27.x"
+          channel: "stable"
+          cache: true
+          architecture: x64
+      - name: Setup melos
+        uses: bluefireteam/melos-action@6085791af7036f6366c9a4b9d55105c0ef9c6388
+        with:
+          melos-version: "6.0.0"
+      - name: Cache podfiles
+        uses: actions/cache@v4
+        with:
+          path: "**/Pods"
+          key: ${{ runner.os }}-pods-${{ hashFiles('**/*.podspec') }}
+          restore-keys: |
+            ${{ runner.os }}-pods-
+      - name: Download Build Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ runner.os }}-build-artifact
+      - name: Select XCode 16.1
+        run: sudo xcode-select -s '/Applications/Xcode_16.1.0.app/Contents/Developer'
+      - name: "Run build for iOS"
+        run: melos run flutter-build-ios
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ runner.os }}-build-artifact
+          include-hidden-files: true
+          path: build
+          retention-days: 1
+          overwrite: true
