@@ -41,7 +41,7 @@ jobs:
       - uses: subosito/flutter-action@f2c4f6686ca8e8d6e6d0f28410eeef506ed66aff
         name: Setup flutter
         with:
-          flutter-version: "3.27.x"
+          flutter-version: "3.29.x"
           channel: "stable"
           cache: true
       - uses: bluefireteam/melos-action@ec2c512a52c2f359186ca19bac0be977c44913e6
@@ -71,7 +71,7 @@ jobs:
       - name: Setup flutter
         uses: subosito/flutter-action@f2c4f6686ca8e8d6e6d0f28410eeef506ed66aff
         with:
-          flutter-version: "3.27.x"
+          flutter-version: "3.29.x"
           channel: "stable"
           cache: true
       - name: Setup melos
@@ -108,7 +108,7 @@ jobs:
       - name: Setup flutter
         uses: subosito/flutter-action@f2c4f6686ca8e8d6e6d0f28410eeef506ed66aff
         with:
-          flutter-version: "3.27.x"
+          flutter-version: "3.29.x"
           channel: "stable"
           cache: true
           architecture: x64
