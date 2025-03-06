@@ -1,9 +1,7 @@
 ![GitHub contributors](https://img.shields.io/github/contributors/googlemaps-samples/flutter-maps-samples)
 ![Apache-2.0](https://img.shields.io/badge/license-Apache-blue)
+[![Build samples](https://github.com/googlemaps-samples/flutter-maps-samples/actions/workflows/test-and-build.yaml/badge.svg?branch=main)](https://github.com/googlemaps-samples/flutter-maps-samples/actions/workflows/test-and-build.yaml)
 [![Discord](https://img.shields.io/discord/676948200904589322)](https://discord.gg/hYsWbmk)
-<!--
-[![Build sample](https://github.com/googlemaps-samples/flutter-maps-samples/workflows/Build%20sample/badge.svg)](https://github.com/googlemaps-samples/flutter-maps-samples/actions?query=workflow%3A%22Build+sample%22)
--->
 
 Google Maps SDK for Flutter sample code
 =======================================
