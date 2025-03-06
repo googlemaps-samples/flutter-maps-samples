@@ -17,12 +17,13 @@ and the [`google_maps_flutter` plugin](https://pub.dev/packages/google_maps_flut
 Getting Started
 ---------------
 
-1. Download the samples by cloning this repository
-2. Open the project in your IDE
-3. The sample app requires that you add your own Google Maps API key into
-   `app/src/main/AndroidManifest.xml`,
-   `ios/Runner/AppDelegate.swift` and
-   `web/index.html`.
+1. **Download** the samples by cloning this repository
+2. **Open** the project in your IDE
+3. The sample app requires that you **add your own Google Maps API key** into
+   - `app/src/main/AndroidManifest.xml`,
+   - `ios/Runner/AppDelegate.swift` and
+   - `web/index.html`.
+
    See [Get Started](https://developers.google.com/maps/get-started)
    docs for more instructions.
 
