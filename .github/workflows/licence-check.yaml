@@ -31,7 +31,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
       - name: Setup go
-        uses: actions/setup-go@f111f3307d8850f501ac008e886eec1fd1932a34
+        uses: actions/setup-go@0aaccfd150d50ccaeb58ebd88d36e91967a5f35b
         with:
           go-version: "^1.13.1"
       # Go is used by addlicense command (addlicense is used in melos run
@@ -39,7 +39,7 @@ jobs:
       - name: Run addlicense
         run: go install github.com/google/addlicense@latest
       - name: Install Flutter
-        uses: subosito/flutter-action@f2c4f6686ca8e8d6e6d0f28410eeef506ed66aff
+        uses: subosito/flutter-action@e938fdf56512cc96ef2f93601a5a40bde3801046
         with:
           flutter-version: "3.29.x"
           channel: "stable"
