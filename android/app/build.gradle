@@ -22,7 +22,9 @@ plugins {
 android {
     namespace = "com.example.flutter_maps_samples"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    // The Google Maps plugin needs a higher version of NDK than
+    // Flutter's default (flutter.ndkVersion).
+    ndkVersion = "27.0.12077973"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
