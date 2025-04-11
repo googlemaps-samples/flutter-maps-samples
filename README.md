@@ -3,7 +3,6 @@
 [![Build samples](https://github.com/googlemaps-samples/flutter-maps-samples/actions/workflows/test-and-build.yaml/badge.svg?branch=main)](https://github.com/googlemaps-samples/flutter-maps-samples/actions/workflows/test-and-build.yaml)
 [![Discord](https://img.shields.io/discord/676948200904589322)](https://discord.gg/hYsWbmk)
 
-
 Google Maps SDK for Flutter sample code
 =======================================
 
