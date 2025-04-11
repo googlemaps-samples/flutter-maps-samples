@@ -78,21 +78,8 @@ jobs:
         uses: bluefireteam/melos-action@ec2c512a52c2f359186ca19bac0be977c44913e6
         with:
           melos-version: "6.0.0"
-      - name: Download Build Artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: ${{ runner.os }}-build-artifact
-        continue-on-error: true
       - name: "Run build for Android"
         run: melos run flutter-build-android
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: ${{ runner.os }}-build-artifact
-          include-hidden-files: true
-          path: build
-          retention-days: 1
-          overwrite: true
 
   build-ios:
     name: Build iOS
@@ -124,20 +111,7 @@ jobs:
           key: ${{ runner.os }}-pods-${{ hashFiles('**/*.podspec') }}
           restore-keys: |
             ${{ runner.os }}-pods-
-      - name: Download Build Artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: ${{ runner.os }}-build-artifact
-        continue-on-error: true
       - name: Select XCode 16.1
         run: sudo xcode-select -s '/Applications/Xcode_16.1.0.app/Contents/Developer'
       - name: "Run build for iOS"
         run: melos run flutter-build-ios
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: ${{ runner.os }}-build-artifact
-          include-hidden-files: true
-          path: build
-          retention-days: 1
-          overwrite: true
