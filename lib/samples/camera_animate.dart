@@ -47,6 +47,12 @@ class _AnimateCameraSampleState extends State<AnimateCameraSample> {
     );
   }
 
+  @override
+  void dispose() {
+    _controller = null;
+    super.dispose();
+  }
+
   /// Called when the button is pressed.
   void _onPressed() {
     // Set up the desired camera update.

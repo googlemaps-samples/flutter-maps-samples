@@ -76,6 +76,9 @@ class _MapControllerAsyncSampleState extends State<MapControllerAsyncSample> {
     // if the controller value is already available.
     final controller = await _completer.future;
 
+    // Bail out if the widget is already disposed.
+    if (!mounted) return;
+
     // Use the controller.
     controller.animateCamera(CameraUpdate.zoomIn());
   }
