@@ -24,6 +24,7 @@ class CustomMarkerSample extends StatefulWidget {
 }
 
 class _CustomMarkerSampleState extends State<CustomMarkerSample> {
+  // [START maps_flutter_custom_marker]
   late Marker _marker = Marker(
     markerId: MarkerId('my_marker'),
     // Start with the default Google Maps pin, except yellow.
@@ -62,4 +63,5 @@ class _CustomMarkerSampleState extends State<CustomMarkerSample> {
       );
     });
   }
+  // [END maps_flutter_custom_marker]
 }

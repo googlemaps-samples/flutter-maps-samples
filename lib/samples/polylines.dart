@@ -22,6 +22,7 @@ class PolylinesSample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // [START maps_flutter_polylines]
     return GoogleMap(
       initialCameraPosition: CameraPosition(target: LatLng(49, -23)),
       polylines: {
@@ -48,5 +49,6 @@ class PolylinesSample extends StatelessWidget {
         ),
       },
     );
+    // [END maps_flutter_polylines]
   }
 }

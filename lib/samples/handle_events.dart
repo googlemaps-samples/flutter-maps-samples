@@ -31,6 +31,7 @@ class _HandleEventsSampleState extends State<HandleEventsSample> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
+        // [START maps_flutter_handle_events]
         GoogleMap(
           initialCameraPosition: CameraPosition(target: LatLng(0, 0)),
           onTap: (position) => setState(() => _response = 'Tapped $position.'),
@@ -42,6 +43,7 @@ class _HandleEventsSampleState extends State<HandleEventsSample> {
             ),
           },
         ),
+        // [END maps_flutter_handle_events]
         Align(
           alignment: Alignment(0, 0.8),
           child: Card(

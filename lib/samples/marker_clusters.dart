@@ -17,6 +17,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 /// Defines a group of nearby markers as a cluster so that the map can
 /// collapse them into a single marker when appropriate.
+// [START maps_flutter_clusters]
 class ClustersSample extends StatelessWidget {
   ClustersSample({super.key});
 
@@ -69,3 +70,4 @@ class ClustersSample extends StatelessWidget {
     );
   }
 }
+// [END maps_flutter_clusters]
