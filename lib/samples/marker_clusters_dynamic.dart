@@ -24,6 +24,7 @@ class DynamicClustersSample extends StatefulWidget {
 }
 
 class _DynamicClustersSampleState extends State<DynamicClustersSample> {
+  // [START maps_flutter_dynamic_clusters]
   Set<ClusterManager> _clusters = {};
 
   Set<Marker> _markers = {
@@ -73,4 +74,5 @@ class _DynamicClustersSampleState extends State<DynamicClustersSample> {
       _markers = updatedMarkers;
     });
   }
+  // [END maps_flutter_dynamic_clusters]
 }

@@ -22,6 +22,7 @@ class MarkerSample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // [START maps_flutter_marker]
     return GoogleMap(
       initialCameraPosition: CameraPosition(target: LatLng(0, 0)),
 
@@ -36,5 +37,6 @@ class MarkerSample extends StatelessWidget {
         ),
       },
     );
+    // [END maps_flutter_marker]
   }
 }

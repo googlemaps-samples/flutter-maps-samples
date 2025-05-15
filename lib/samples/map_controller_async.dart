@@ -28,6 +28,7 @@ class MapControllerAsyncSample extends StatefulWidget {
 }
 
 class _MapControllerAsyncSampleState extends State<MapControllerAsyncSample> {
+  // [START maps_flutter_map_controller_async]
   /// An async completer that we supply with the map controller
   /// as soon as the `onMapCreated` callback is fired.
   final Completer<GoogleMapController> _completer = Completer();
@@ -82,4 +83,5 @@ class _MapControllerAsyncSampleState extends State<MapControllerAsyncSample> {
     // Use the controller.
     controller.animateCamera(CameraUpdate.zoomIn());
   }
+  // [END maps_flutter_map_controller_async]
 }

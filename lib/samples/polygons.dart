@@ -22,6 +22,7 @@ class PolygonsSample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // [START maps_flutter_polygons]
     return GoogleMap(
       initialCameraPosition: CameraPosition(target: LatLng(25, -72)),
       polygons: {
@@ -41,5 +42,6 @@ class PolygonsSample extends StatelessWidget {
         ),
       },
     );
+    // [END maps_flutter_polygons]
   }
 }
