@@ -79,7 +79,7 @@ scripts:
     # If you add here another --ignore flag, add it also to
     # "check-license-header".
     run: |
-      addlicense -s -f header_template.txt \
+      addlicense -f header_template.txt \
         --ignore ".idea/**" \
         --ignore "android/app/.cxx/**" \
         --ignore "**/Pods/**" \
@@ -97,7 +97,7 @@ scripts:
     # If you add here another --ignore flag, add it also to
     # "add-license-header".
     run: |
-      addlicense -s -f header_template.txt \
+      addlicense -f header_template.txt \
         --check \
         --ignore ".idea/**" \
         --ignore "android/app/.cxx/**" \
