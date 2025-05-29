@@ -12,6 +12,8 @@
  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  See the License for the specific language governing permissions and
  limitations under the License.
+
+ SPDX-License-Identifier: Apache-2.0
 -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
@@ -52,7 +54,7 @@
             android:value="2" />
         <!-- Google Maps API Key -->
         <meta-data android:name="com.google.android.geo.API_KEY"
-                   android:value="AIzaSyAS1zaJLBxG14nJUM8LLtDjN2imbFugmLk"/>
+                   android:value="AIzaSyD64FPq_Hf-ladFapnQCACdcpgwAtJ---M"/>
     </application>
     <!-- Required to query activities that can process text, see:
          https://developer.android.com/training/package-visibility and
