@@ -25,7 +25,6 @@ class AnimateCameraSample extends StatefulWidget {
 }
 
 class _AnimateCameraSampleState extends State<AnimateCameraSample> {
-  // [START maps_flutter_animate_camera]
   /// An instance of map controller obtained through `onMapCreated`.
   GoogleMapController? _controller;
 
@@ -50,7 +49,6 @@ class _AnimateCameraSampleState extends State<AnimateCameraSample> {
 
   @override
   void dispose() {
-    // Prevent erroneous use of controller after widget disposed.
     _controller = null;
     super.dispose();
   }
@@ -65,5 +63,4 @@ class _AnimateCameraSampleState extends State<AnimateCameraSample> {
     // Start the animation.
     _controller?.animateCamera(update);
   }
-  // [END maps_flutter_animate_camera]
 }

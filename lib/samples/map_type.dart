@@ -22,7 +22,6 @@ class MapTypeSample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // [START maps_flutter_map_type]
     return GoogleMap(
       initialCameraPosition: CameraPosition(target: LatLng(0, 0)),
 
@@ -33,6 +32,5 @@ class MapTypeSample extends StatelessWidget {
       // .hybrid - Satellite imagery with road overlays and place labels
       mapType: MapType.satellite,
     );
-    // [END maps_flutter_map_type]
   }
 }

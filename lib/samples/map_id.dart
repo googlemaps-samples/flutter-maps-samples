@@ -21,13 +21,11 @@ class MapIdSample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // [START maps_flutter_map_id]
     return GoogleMap(
       initialCameraPosition: CameraPosition(target: LatLng(0, 0)),
 
       // Generate your own map ID at https://goo.gle/get-map-id.
       cloudMapId: '78434bee6dc2e9b1',
     );
-    // [END maps_flutter_map_id]
   }
 }

@@ -21,7 +21,6 @@ class StyledMapSample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // [START maps_flutter_styled_map]
     return GoogleMap(
       initialCameraPosition: CameraPosition(target: LatLng(0, 0)),
 
@@ -45,6 +44,5 @@ class StyledMapSample extends StatelessWidget {
 ]
       ''',
     );
-    // [END maps_flutter_styled_map]
   }
 }

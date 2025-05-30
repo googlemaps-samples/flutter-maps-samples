@@ -25,7 +25,6 @@ class MoveCameraSample extends StatefulWidget {
 }
 
 class _MoveCameraSampleState extends State<MoveCameraSample> {
-  // [START maps_flutter_move_camera]
   /// An instance of map controller obtained through `onMapCreated`.
   GoogleMapController? _controller;
 
@@ -50,7 +49,6 @@ class _MoveCameraSampleState extends State<MoveCameraSample> {
 
   @override
   void dispose() {
-    // Prevent erroneous use of controller after widget disposed.
     _controller = null;
     super.dispose();
   }
@@ -64,5 +62,4 @@ class _MoveCameraSampleState extends State<MoveCameraSample> {
     // Move the camera.
     _controller?.moveCamera(update);
   }
-  // [END maps_flutter_move_camera]
 }

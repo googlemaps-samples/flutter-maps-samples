@@ -24,7 +24,6 @@ class DynamicMarkerSample extends StatefulWidget {
 }
 
 class _DynamicMarkerSampleState extends State<DynamicMarkerSample> {
-  // [START maps_flutter_dynamic_marker]
   /// The dynamic set of markers to be shown on the map.
   /// Marker IDs need to be unique.
   final Set<Marker> _markers = {
@@ -72,5 +71,4 @@ class _DynamicMarkerSampleState extends State<DynamicMarkerSample> {
     // Add the marker with setState.
     setState(() => _markers.add(fishermansWharf));
   }
-  // [END maps_flutter_dynamic_marker]
 }
