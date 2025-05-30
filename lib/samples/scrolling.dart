@@ -24,7 +24,6 @@ class ScrollingSample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // [START maps_flutter_scrolling]
     return ListView(
       children: [
         _PlaceholderItem(1),
@@ -62,7 +61,6 @@ class ScrollingSample extends StatelessWidget {
         for (var i = 5; i <= 10; i++) _PlaceholderItem(i),
       ],
     );
-    // [END maps_flutter_scrolling]
   }
 }
 

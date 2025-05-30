@@ -34,7 +34,6 @@ class _MyLocationSampleState extends State<MyLocationSample> {
 
   @override
   Widget build(BuildContext context) {
-    // [START maps_flutter_my_location]
     return GoogleMap(
       initialCameraPosition: CameraPosition(target: LatLng(37.78, -122.42)),
 
@@ -50,7 +49,6 @@ class _MyLocationSampleState extends State<MyLocationSample> {
       // This has no effect when `myLocationEnabled` is false.
       myLocationButtonEnabled: true,
     );
-    // [END maps_flutter_my_location]
   }
 
   @override

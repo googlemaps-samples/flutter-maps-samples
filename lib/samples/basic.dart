@@ -16,7 +16,6 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 /// This example creates a map using the [GoogleMap] widget.
-// [START maps_flutter_basic]
 class BasicSample extends StatelessWidget {
   const BasicSample({super.key});
 
@@ -28,4 +27,3 @@ class BasicSample extends StatelessWidget {
     );
   }
 }
-// [END maps_flutter_basic]
