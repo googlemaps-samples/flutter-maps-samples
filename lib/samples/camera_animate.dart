@@ -42,7 +42,7 @@ class _AnimateCameraSampleState extends State<AnimateCameraSample> {
             onPressed: _onPressed,
             child: Text('Fly to New York'),
           ),
-        )
+        ),
       ],
     );
   }
@@ -57,7 +57,11 @@ class _AnimateCameraSampleState extends State<AnimateCameraSample> {
   void _onPressed() {
     // Set up the desired camera update.
     final newYork = CameraPosition(
-        target: LatLng(40.7128, -74.0060), bearing: 270, tilt: 30, zoom: 18);
+      target: LatLng(40.7128, -74.0060),
+      bearing: 270,
+      tilt: 30,
+      zoom: 18,
+    );
     final update = CameraUpdate.newCameraPosition(newYork);
 
     // Start the animation.

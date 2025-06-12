@@ -50,10 +50,12 @@ class _DynamicClustersSampleState extends State<DynamicClustersSample> {
 
   /// Creates clusters according to some business logic, then calls [setState].
   void _computeClusters() {
-    final spainCluster =
-        ClusterManager(clusterManagerId: ClusterManagerId('spain'));
-    final moroccoCluster =
-        ClusterManager(clusterManagerId: ClusterManagerId('morocco'));
+    final spainCluster = ClusterManager(
+      clusterManagerId: ClusterManagerId('spain'),
+    );
+    final moroccoCluster = ClusterManager(
+      clusterManagerId: ClusterManagerId('morocco'),
+    );
 
     // Here, we simply assign markers above a certain latitude to one cluster,
     // and ones below to another.
@@ -61,11 +63,13 @@ class _DynamicClustersSampleState extends State<DynamicClustersSample> {
     // Real apps will cluster according to some more meaningful relationships
     // between markers.
     final updatedMarkers = _markers
-        .map((marker) => marker.copyWith(
-              clusterManagerIdParam: marker.position.latitude > 35.96
-                  ? spainCluster.clusterManagerId
-                  : moroccoCluster.clusterManagerId,
-            ))
+        .map(
+          (marker) => marker.copyWith(
+            clusterManagerIdParam: marker.position.latitude > 35.96
+                ? spainCluster.clusterManagerId
+                : moroccoCluster.clusterManagerId,
+          ),
+        )
         .toSet();
 
     setState(() {

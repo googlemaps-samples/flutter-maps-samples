@@ -46,8 +46,10 @@ class _DynamicMarkerSampleState extends State<DynamicMarkerSample> {
     return Stack(
       children: [
         GoogleMap(
-          initialCameraPosition:
-              CameraPosition(target: LatLng(37.7749, -122.4194), zoom: 12.5),
+          initialCameraPosition: CameraPosition(
+            target: LatLng(37.7749, -122.4194),
+            zoom: 12.5,
+          ),
           // Simply pass the set of current markers as an argument.
           markers: _markers,
         ),
@@ -57,7 +59,7 @@ class _DynamicMarkerSampleState extends State<DynamicMarkerSample> {
             onPressed: _onPressed,
             child: Text('Add Fisherman’s Wharf'),
           ),
-        )
+        ),
       ],
     );
   }

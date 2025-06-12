@@ -94,7 +94,7 @@ class MyHomePage extends StatelessWidget {
         mainAxisSpacing: 10,
         children: [
           for (var (index, sample) in samples.indexed)
-            _buildCard(index, sample, context)
+            _buildCard(index, sample, context),
         ],
       ),
     );
@@ -114,10 +114,8 @@ class MyHomePage extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => _SharedScaffold(
-                title: title,
-                child: widget,
-              ),
+              builder: (context) =>
+                  _SharedScaffold(title: title, child: widget),
             ),
           );
         },
@@ -141,14 +139,17 @@ class MyHomePage extends StatelessWidget {
   }
 
   String _describe(Widget widget) {
-    final camelCaseString =
-        widget.runtimeType.toString().replaceAll('Sample', '');
+    final camelCaseString = widget.runtimeType.toString().replaceAll(
+      'Sample',
+      '',
+    );
 
     // Use a RegEx to find uppercase letters preceded by lowercase letters
     // or other uppercase letters
     return camelCaseString.replaceAllMapped(
-        RegExp(r'(?<=[a-z])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])'),
-        (match) => ' ');
+      RegExp(r'(?<=[a-z])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])'),
+      (match) => ' ',
+    );
   }
 }
 

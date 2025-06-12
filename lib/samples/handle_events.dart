@@ -50,7 +50,7 @@ class _HandleEventsSampleState extends State<HandleEventsSample> {
               child: Text(_response),
             ),
           ),
-        )
+        ),
       ],
     );
   }

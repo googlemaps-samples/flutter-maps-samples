@@ -36,8 +36,9 @@ class _MapControllerAsyncSampleState extends State<MapControllerAsyncSample> {
   ///
   /// In real apps, this could be a stream of changes to the user's position,
   /// for example.
-  final Stream<void> _myEventsStream =
-      Stream.periodic(const Duration(seconds: 1)).take(5);
+  final Stream<void> _myEventsStream = Stream.periodic(
+    const Duration(seconds: 1),
+  ).take(5);
 
   /// A subscription to [_myEventsStream], so we can properly cancel it.
   StreamSubscription<void>? _myStreamSubscription;

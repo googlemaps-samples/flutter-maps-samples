@@ -42,7 +42,7 @@ class _MoveCameraSampleState extends State<MoveCameraSample> {
             onPressed: _onPressed,
             child: Text('Jump to New York'),
           ),
-        )
+        ),
       ],
     );
   }
