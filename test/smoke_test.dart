@@ -26,17 +26,24 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 ///     flutter run -d your_device test/smoke_test.dart
 void main() {
   testWidgets('Smoke test', (WidgetTester tester) async {
-    final runningOnRealDevice =
-        !Platform.environment.containsKey('FLUTTER_TEST');
+    final runningOnRealDevice = !Platform.environment.containsKey(
+      'FLUTTER_TEST',
+    );
 
     // Build our app and trigger a frame.
     await tester.pumpWidget(const MyApp());
 
     final cardsFinder = find.byType(Card, skipOffstage: false);
-    expect(cardsFinder, findsNWidgets(MyHomePage.samples.length),
-        reason: 'not all samples have cards');
-    expect(find.byType(GoogleMap), findsNothing,
-        reason: 'map found on the main menu');
+    expect(
+      cardsFinder,
+      findsNWidgets(MyHomePage.samples.length),
+      reason: 'not all samples have cards',
+    );
+    expect(
+      find.byType(GoogleMap),
+      findsNothing,
+      reason: 'map found on the main menu',
+    );
     final cardWidgets = tester.widgetList<Card>(cardsFinder);
 
     for (final cardWidget in cardWidgets) {
@@ -44,10 +51,16 @@ void main() {
 
       // Scroll up first.
       await tester.dragUntilVisible(
-          cardsFinder.first, find.byType(GridView), Offset(0, 10));
+        cardsFinder.first,
+        find.byType(GridView),
+        Offset(0, 10),
+      );
       // Then scroll to the widget.
       await tester.dragUntilVisible(
-          cardFinder, find.byType(GridView), Offset(0, -10));
+        cardFinder,
+        find.byType(GridView),
+        Offset(0, -10),
+      );
 
       // Running the following steps in "true" async
       // so that method channels have a chance to work.

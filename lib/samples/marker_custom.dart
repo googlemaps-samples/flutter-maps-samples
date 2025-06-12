@@ -42,8 +42,10 @@ class _CustomMarkerSampleState extends State<CustomMarkerSample> {
 
   void _changeIcon() async {
     // Set up the image configuration for the new icon, including its size.
-    final imageConfiguration =
-        createLocalImageConfiguration(context, size: Size(42, 52));
+    final imageConfiguration = createLocalImageConfiguration(
+      context,
+      size: Size(42, 52),
+    );
 
     // Load the icon image from an asset.
     // Alternatively, you can create the icon with BitmapDescriptor.bytes(),

@@ -73,24 +73,30 @@ class _MyLocationSampleState extends State<MyLocationSample> {
         title: Text('Requesting permission'),
         children: [
           SimpleDialogOption(
-              onPressed: () => Navigator.pop(context, true),
-              child: Text('Grant')),
+            onPressed: () => Navigator.pop(context, true),
+            child: Text('Grant'),
+          ),
           SimpleDialogOption(
-              onPressed: () => Navigator.pop(context, false),
-              child: Text('Deny')),
+            onPressed: () => Navigator.pop(context, false),
+            child: Text('Deny'),
+          ),
         ],
       ),
     );
 
     if (!mounted) return;
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      content: Text('Fake permission granted: $result. '
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          'Fake permission granted: $result. '
           'Remember that for My Location to actually work, '
           'you need an actual runtime permission on some platforms. '
-          'See the code of this sample for more info.'),
-      duration: const Duration(seconds: 10),
-      showCloseIcon: true,
-    ));
+          'See the code of this sample for more info.',
+        ),
+        duration: const Duration(seconds: 10),
+        showCloseIcon: true,
+      ),
+    );
 
     setState(() {
       _permissionGranted = result;

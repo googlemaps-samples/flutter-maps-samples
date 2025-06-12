@@ -53,9 +53,7 @@ class ScrollingSample extends StatelessWidget {
             // Here, we leave scrolling gestures to the ListView.
             // The map still gets taps (which are not consumed by ListView)
             // and also reserves scaling for itself.
-            gestureRecognizers: {
-              Factory(() => ScaleGestureRecognizer()),
-            },
+            gestureRecognizers: {Factory(() => ScaleGestureRecognizer())},
           ),
         ),
         for (var i = 5; i <= 10; i++) _PlaceholderItem(i),

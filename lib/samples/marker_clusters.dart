@@ -20,8 +20,9 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 class ClustersSample extends StatelessWidget {
   ClustersSample({super.key});
 
-  final ClusterManager _myCluster =
-      ClusterManager(clusterManagerId: ClusterManagerId('my cluster'));
+  final ClusterManager _myCluster = ClusterManager(
+    clusterManagerId: ClusterManagerId('my cluster'),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -61,10 +62,7 @@ class ClustersSample extends StatelessWidget {
         ),
 
         // Markers without a clusterManagerId will always show independently.
-        Marker(
-          markerId: MarkerId('out'),
-          position: LatLng(5.31, -3.99),
-        ),
+        Marker(markerId: MarkerId('out'), position: LatLng(5.31, -3.99)),
       },
     );
   }
