@@ -43,3 +43,13 @@ please [file an issue](https://github.com/googlemaps-samples/flutter-maps-sample
 
 Patches are encouraged, and may be submitted according to the instructions in
 CONTRIBUTING.md.
+
+European Economic Area (EEA) developers
+---------------------------------------
+
+If your billing address is in the European Economic Area,
+effective on 8 July 2025, the
+[Google Maps Platform EEA Terms of Service](https://cloud.google.com/terms/maps-platform/eea)
+will apply to your use of the Services.
+Functionality varies by region.
+[Learn more](https://developers.google.com/maps/comms/eea/faq).
