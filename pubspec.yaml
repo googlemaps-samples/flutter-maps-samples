@@ -32,10 +32,109 @@ dev_dependencies:
   flutter_lints: ^6.0.0
   flutter_test:
     sdk: flutter
-  melos: ^6.3.3
+  melos: ^7.3.0
 
 flutter:
   uses-material-design: true
 
   assets:
     - assets/icon_flutter.png
+
+# Melos is this repository's CI/CD helper.
+melos:
+  useRootAsPackage: true
+  categories:
+    app:
+      - "."
+
+  command:
+    version:
+      # Generate commit links in package changelogs.
+      linkToCommits: true
+      # # Only allow versioning to happen on main branch.
+      # branch: master
+      # Additionally build a changelog at the root of the workspace.
+      workspaceChangelog: true
+
+    bootstrap:
+      # It seems so that running "pub get" in parallel has some issues (like
+      # https://github.com/dart-lang/pub/issues/3404). Disabling this feature
+      # makes the CI much more stable.
+      runPubGetInParallel: false
+      usePubspecOverrides: true
+
+  scripts:
+    flutter-analyze:
+      # We are setting the concurrency to 1 because a higher concurrency can crash
+      # the analysis server on low performance machines (like GitHub Actions).
+      run: flutter analyze . --fatal-infos
+      exec:
+        concurrency: 1
+      description: |
+        Run `flutter analyze` in all packages.
+
+    format:
+      run: |
+        dart format .
+      description: |
+        Formats the code with dart format.
+
+    test:
+      run: flutter pub get && flutter test
+      exec:
+        concurrency: 1
+        failFast: true
+      description: Flutter test
+
+    flutter-build-android:
+      run: |
+        flutter pub get && flutter build apk && flutter build appbundle
+      exec:
+        concurrency: 1
+        failFast: true
+      description: Build the sample app for Android.
+
+    flutter-build-ios:
+      run: |
+        flutter pub get && flutter build ios --release --no-codesign
+      exec:
+        concurrency: 1
+        failFast: true
+      description: Build the sample app for iOS.
+
+    add-license-header:
+      # If you add here another --ignore flag, add it also to
+      # "check-license-header".
+      run: |
+        addlicense -f header_template.txt \
+          --ignore ".idea/**" \
+          --ignore "android/app/.cxx/**" \
+          --ignore "**/Pods/**" \
+          --ignore "**/.dart_tool/**" \
+          --ignore "build/**" \
+          --ignore "**/GeneratedPluginRegistrant.*" \
+          --ignore "**/flutter_export_environment.sh" \
+          --ignore "**/FlutterGeneratedPluginSwiftPackage/**" \
+          --ignore ".github/PULL_REQUEST_TEMPLATE.md" \
+          --ignore ".github/ISSUE_TEMPLATE/**" \
+          .
+      description: Add a license header to all necessary files.
+
+    check-license-header:
+      # If you add here another --ignore flag, add it also to
+      # "add-license-header".
+      run: |
+        addlicense -f header_template.txt \
+          --check \
+          --ignore ".idea/**" \
+          --ignore "android/app/.cxx/**" \
+          --ignore "**/Pods/**" \
+          --ignore "**/.dart_tool/**" \
+          --ignore "build/**" \
+          --ignore "**/GeneratedPluginRegistrant.*" \
+          --ignore "**/flutter_export_environment.sh" \
+          --ignore "**/FlutterGeneratedPluginSwiftPackage/**" \
+          --ignore ".github/PULL_REQUEST_TEMPLATE.md" \
+          --ignore ".github/ISSUE_TEMPLATE/**" \
+          .
+      description: Add a license header to all necessary files.
