@@ -14,7 +14,11 @@
 # limitations under the License.
 set -e
 
-if [[ $(git ls-files --modified) ]]; then
+# Get modified files, excluding pubspec.lock.
+# The '|| true' prevents the script from exiting if grep finds no matches.
+MODIFIED_FILES=$(git ls-files --modified | grep -v '^pubspec.lock$' || true)
+
+if [[ $MODIFIED_FILES ]]; then
   echo ""
   echo ""
   echo "These files are not formatted correctly:"
