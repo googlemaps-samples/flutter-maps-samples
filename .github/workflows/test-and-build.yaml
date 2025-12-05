@@ -30,7 +30,7 @@ jobs:
     runs-on:
       labels: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         name: Checkout code
       - uses: actions/setup-java@v4
         name: Setup java
@@ -61,7 +61,7 @@ jobs:
       MAPS_API_KEY: ${{ secrets.ACTIONS_API_KEY }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Setup java
         uses: actions/setup-java@v4
         with:
@@ -92,7 +92,7 @@ jobs:
       MAPS_API_KEY: ${{ secrets.ACTIONS_API_KEY }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8
       - name: Setup flutter
         uses: subosito/flutter-action@fd55f4c5af5b953cc57a2be44cb082c8f6635e8e
         with:
