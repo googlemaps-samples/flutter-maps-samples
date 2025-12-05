@@ -111,7 +111,7 @@ jobs:
           key: ${{ runner.os }}-pods-${{ hashFiles('**/*.podspec') }}
           restore-keys: |
             ${{ runner.os }}-pods-
-      - name: Select XCode 16.2
-        run: sudo xcode-select -s '/Applications/Xcode_16.2.app/Contents/Developer'
+      - name: Select XCode 26.1.1
+        run: sudo xcode-select -s '/Applications/Xcode_26.1.1.app/Contents/Developer'
       - name: "Run build for iOS"
         run: melos run flutter-build-ios
